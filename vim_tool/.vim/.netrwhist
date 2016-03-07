@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/tomoprog/Programming/python/coin'
-let g:netrw_dirhist_2='/home/tomoprog/Programming/python'
-let g:netrw_dirhist_3='/home/tomoprog/Programming/python/twitter_bot'
-let g:netrw_dirhist_4='/home/tomoprog/Programming/python'
-let g:netrw_dirhist_5='/home/tomoprog/Programming/python/karuta'
-let g:netrw_dirhist_6='/home/tomoprog/seaborn-data'
