@@ -9,3 +9,4 @@ set nowrap
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 filetype plugin indent on
+:source ~/.vim/mycmd/py_template/py_template.vim
