@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="{% static 'PyBoard/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'PyBoard/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+		<script src="{% static 'PyBoard/js/jquery-2.2.3.min.js' %}"></script>
+		<script src="{% static 'PyBoard/js/bootstrap.min.js' %}"></script>
+		<title>Python掲示板</title>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<div class="row">
+					<div class="col-sm-10">
+						<h1>Python掲示板</h1>
+						<p>Pythonについて気軽に話し合おう</p>
+					</div>
+					<div class="col-sm-2">
+						Top
+						Login
+					</div>
+				</div>
+			</header>
+			{% block contents %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
