@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'PyBoard.apps.PyboardConfig',
     'bootstrapform',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
