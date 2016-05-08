@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block css %}
+<style>
+</style>
+{% endblock %}
+{% block contents %}
+<h2 style="margin-bottom: 25px;">{{ topic_title }}</h2>
+{% for topic_detail in topic_details %}
+<p><a class="btn-sm btn-default">返信する</a></p>
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<th class="success col-sm-3">ユーザー名</th>
+			<td>{{ topic_detail.register_name }}</td>
+		</tr>
+		<tr>
+			<th class="success col-sm-3">作成日時</th>
+			<td>{{ topic_detail.register_datetime }}</td>
+		</tr>
+		<tr>
+			<th class="success col-sm-3">内容</th>
+			<td>{{ topic_detail.text }}</td>
+		</tr>
+	</tbody>
+</table>
+{% endfor %}
+{% endblock %}

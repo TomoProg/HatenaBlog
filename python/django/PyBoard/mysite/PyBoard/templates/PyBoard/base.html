@@ -8,8 +8,11 @@
 		<link href="{% static 'PyBoard/css/bootstrap-theme.min.css' %}" rel="stylesheet">
 		<script src="{% static 'PyBoard/js/jquery-2.2.3.min.js' %}"></script>
 		<script src="{% static 'PyBoard/js/bootstrap.min.js' %}"></script>
-		<title>Python掲示板</title>
+		<title>Python Board</title>
 		<style>
+			body {
+				padding-top: 70px;
+			}
 			header {
 			}
 			nav.global-nav ul {
@@ -24,35 +27,54 @@
 			}
 			nav.global-nav a {
 			}
+			.outside {
+				background-color: #0000FF;
+			}
 		</style>
 		{% block css %}
 		{% endblock %}
 	</head>
 	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="{% url 'PyBoard:index' %}">Python Board</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="{% url 'PyBoard:index' %}">Top</a></li>
+					<li><a href="{% url 'PyBoard:about' %}">About</a></li>
+					<li><a href="{% url 'PyBoard:contact' %}">Contact</a></li>
+					<li class="dropdown">
+						<a href="{% url 'PyBoard:contact' %}" data-toggle="dropdown" 
+						role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'PyBoard:contact' %}">Login</a></li>
+							<li><a href="{% url 'PyBoard:contact' %}">Logout</a></li>
+							<li><a href="{% url 'PyBoard:contact' %}">New Account</a></li>
+						</ul>
+					</li>
+				</ul>
+				<p class="navbar-text navbar-right">ようこそ。ゲストさん。</p>
+			</div>
+		</nav>
 		<div class="container">
 			<header>
 				<div class="row">
 					<div class="col-sm-12">
-						<h1>Python掲示板</h1>
+						<h1>Python Board</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
 						<p>Pythonについて気軽に話し合おう</p>
 					</div>
-					<nav class="global-nav">
-						<div class="col-sm-8">
-							<ul>
-								<li><a href="/PyBoard/">Top</a></li>
-								<li><a href="/PyBoard/about/">About</a></li>
-								<li><a href="/PyBoard/contact/">Contact</a></li>
-								<li>Login</li>
-							</ul>
-						</div>
-					</nav>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<hr style="margin:0px 0px 10px 0px;" >
+					</div>
 				</div>
 			</header>
-			<hr style="margin:0px 0px 10px 0px;" >
 			{% block contents %}
 			{% endblock %}
 		</div>
