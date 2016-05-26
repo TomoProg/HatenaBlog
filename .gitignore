@@ -1,0 +1,10 @@
+c_c++/
+python/django/PyBoard/bin/
+python/django/PyBoard/include/
+python/django/PyBoard/lib/
+python/django/PyBoard/mysite/PyBoard/__pycache__/
+python/django/PyBoard/mysite/PyBoard/migrations/__pycache__/
+python/django/PyBoard/mysite/db.sqlite3
+python/django/PyBoard/mysite/mysite/__pycache__/
+python/django/PyBoard/pip-selfcheck.json
+
