@@ -15,49 +15,53 @@
 			}
 			header {
 			}
-			nav.global-nav ul {
-				display: table;
-				table-layout: fixed;
-				text-align: center;
-				width: 100%;
-			}
-			nav.global-nav li{
-				display: table-cell;
-				vertical-align: middle;
-			}
-			nav.global-nav a {
-			}
-			.outside {
-				background-color: #0000FF;
+			.second-title-space {
+				padding-bottom: 10px;
 			}
 		</style>
-		{% block css %}
+		{% block exhead %}
 		{% endblock %}
 	</head>
 	<body>
+		<!-- Navigation Start -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-pattern">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
 					<a class="navbar-brand" href="{% url 'PyBoard:index' %}">Python Board</a>
+					<p class="navbar-text ">
+					{% if signin_username %}
+						こんにちは。{{ signin_username }}さん。
+					{% else %}
+						こんにちは。ゲストさん。
+					{% endif %}
+					</p>
 				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="{% url 'PyBoard:index' %}">Top</a></li>
+				<div id="collapse-pattern" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{% url 'PyBoard:index' %}">Top</a></li>
 					<li><a href="{% url 'PyBoard:about' %}">About</a></li>
 					<li><a href="{% url 'PyBoard:contact' %}">Contact</a></li>
 					<li class="dropdown">
 						<a href="{% url 'PyBoard:contact' %}" data-toggle="dropdown" 
-						role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+							role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="{% url 'PyBoard:contact' %}">Login</a></li>
-							<li><a href="{% url 'PyBoard:contact' %}">Logout</a></li>
-							<li><a href="{% url 'PyBoard:contact' %}">New Account</a></li>
+							<li><a href="{% url 'PyBoard:signin' %}">Sign in</a></li>
+							<li><a href="{% url 'PyBoard:signout' %}">Sign out</a></li>
+							<li><a href="{% url 'PyBoard:signup' %}">Sign up</a></li>
 						</ul>
 					</li>
 				</ul>
-				<p class="navbar-text navbar-right">ようこそ。ゲストさん。</p>
+				</div>
 			</div>
 		</nav>
+		<!-- Navigation End -->
 		<div class="container">
+			<!-- Header Start -->
 			<header>
 				<div class="row">
 					<div class="col-sm-12">
@@ -75,8 +79,17 @@
 					</div>
 				</div>
 			</header>
+			<!-- Header End -->
+
+			<!-- Main Start -->
 			{% block contents %}
 			{% endblock %}
+			<!-- Main End -->
+
+			<!-- Footer Start -->
+			<footer>
+			</footer>
+			<!-- Footer End -->
 		</div>
 	</body>
 </html>

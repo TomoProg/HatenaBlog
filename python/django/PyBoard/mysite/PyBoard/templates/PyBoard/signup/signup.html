@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block exhead %}
+	<style>
+		.item-space {
+			padding-bottom: 20px;
+		}
+		.error-message {
+			color: #FF0000;
+		}
+	</style>
+{% endblock %}
+{% block contents %}
+	<h3>Sign Up</h3>
+	<p>サインアップしてPython Boardを楽しみましょう。<p>
+	<div class="second-title-space"></div>
+	<form method="post" action="{% url 'PyBoard:signup' %}">
+		{% csrf_token %}
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12">
+					<b>{{ form.username.label }}</b>
+				</div>
+			</div>
+			<div class="row item-space">
+				<div class="col-sm-5">
+					{{ form.username }}
+				</div>
+				<div class="col-sm-7 error-message">
+					{{ form.errors.username.as_text }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<b>{{ form.password.label }}</b>
+				</div>
+			</div>
+			<div class="row item-space">
+				<div class="col-sm-5">
+					{{ form.password }}
+				</div>
+				<div class="col-sm-7 error-message">
+					{{ form.errors.password.as_text }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					{{ form.confirm_password }}
+				</div>
+				<div class="col-sm-7 error-message">
+					{{ form.non_field_errors.as_text }}
+				</div>
+			</div>
+		</div>
+		<p class="error-message">{{ error_message }}</p>
+		<input type="submit" class="btn btn-success" value="Sign up"></input>
+	</form>
+{% endblock %}

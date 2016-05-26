@@ -1,12 +1,10 @@
 {% extends "base.html" %}
-{% block css %}
-<style>
-</style>
+{% block exhead %}
 {% endblock %}
 {% block contents %}
 <h2 style="margin-bottom: 25px;">{{ topic_title }}</h2>
 {% for topic_detail in topic_details %}
-<p><a class="btn-sm btn-default">返信する</a></p>
+<p><a href="{% url 'PyBoard:reply' topic_id=topic_id text_no=topic_detail.text_no %}" class="btn-sm btn-default">返信する</a></p>
 <table class="table table-bordered">
 	<tbody>
 		<tr>
@@ -14,12 +12,16 @@
 			<td>{{ topic_detail.register_name }}</td>
 		</tr>
 		<tr>
+			<th class="success col-sm-3">記事No.</th>
+			<td>{{ topic_detail.text_no }}</td>
+		</tr>
+		<tr>
 			<th class="success col-sm-3">作成日時</th>
 			<td>{{ topic_detail.register_datetime }}</td>
 		</tr>
 		<tr>
 			<th class="success col-sm-3">内容</th>
-			<td>{{ topic_detail.text }}</td>
+			<td>{{ topic_detail.text|linebreaks }}</td>
 		</tr>
 	</tbody>
 </table>

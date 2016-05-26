@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block exhead %}
+	<style>
+		.item-space {
+			padding-bottom: 20px;
+		}
+		.error-message {
+			color: #FF0000;
+		}
+	</style>
+{% endblock %}
+{% block contents %}
+	<h3>Sign in</h3>
+	<p>サインインすることでPython Boardのすべての機能を使用できます。</p>
+	<div class="second-title-space"></div>
+	<form method="post" action="{% url 'PyBoard:signin' %}">
+		{% csrf_token %}
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12">
+					<b>{{ form.username.label }}</b>
+				</div>
+			</div>
+			<div class="row item-space">
+				<div class="col-sm-5">
+					{{ form.username }}
+				</div>
+				<div class="col-sm-7 error-message">
+					{{ form.errors.username.as_text }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<b>{{ form.password.label }}</b>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					{{ form.password }}
+				</div>
+				<div class="col-sm-7 error-message">
+					{{ form.errors.password.as_text }}
+				</div>
+			</div>
+		</div>
+		<p class="error-message">{{ error_message }}</p>
+		<input type="submit" class="btn btn-success" value="Sign in"></input>
+	</form>
+{% endblock %}

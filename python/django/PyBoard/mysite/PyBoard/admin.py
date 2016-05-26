@@ -3,6 +3,19 @@ from .models import Topic, TopicDetail
 
 # Register your models here.
 
-admin.site.register(Topic)
-admin.site.register(TopicDetail)
+class TopicDetailInline(admin.StackedInline):
+    model = TopicDetail
+    extra = 3
+
+class TopicAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'register_name',
+        'register_datetime',
+        'update_name',
+        'update_datetime',
+    )
+    inlines = [TopicDetailInline]
+
+admin.site.register(Topic, TopicAdmin)
 

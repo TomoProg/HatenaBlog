@@ -1,8 +1,18 @@
 {% extends "base.html" %}
-{% block css %}
-<style>
-</style>
+{% block exhead %}
 {% endblock %}
 {% block contents %}
+<h2 style="margin-bottom: 25px;">{{ topic_title }}</h2>
 <h3>返信</h3>
+	<form method="post" action="{% url 'PyBoard:reply' topic_id=topic_id text_no=0 %}">
+		{% csrf_token %}
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-8">
+					{{ form.text }}
+				</div>
+			</div>
+		</div>
+		<input type="submit" class="btn btn-success" value="返信"></input>
+	</form>
 {% endblock %}
